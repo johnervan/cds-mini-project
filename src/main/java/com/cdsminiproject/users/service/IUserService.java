@@ -1,7 +1,6 @@
 package com.cdsminiproject.users.service;
 
 import com.cdsminiproject.users.dto.model.UserDto;
-import com.cdsminiproject.users.model.user.User;
 
 import java.util.List;
 
