@@ -16,8 +16,8 @@ import lombok.experimental.Accessors;
 public class Response<T> {
 
 	private Status status;
-	private T payload;
-	private Object errors;
+	private T data;
+	private String error;
 
 	public static <T> Response<T> success() {
 		Response<T> response = new Response<>();
