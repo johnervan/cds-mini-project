@@ -14,11 +14,11 @@ import javax.validation.constraints.*;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NewUserValidator {
-	@NotEmpty(message = "${constraints.NotEmpty.message}")
+	@NotEmpty(message = "'name' must not be empty")
 	private String name;
 
-	@DecimalMin(value = "0.0", inclusive = true)
-	@Digits(integer=20, fraction=2)
-	@NotEmpty(message = "${constraints.NotEmpty.message}")
+	@DecimalMin(value = "0.0", inclusive = true, message = "'salary' must be a positive number")
+	@Digits(integer=20, fraction=2, message = "Only 'salary' values with up to 2 decimal places are allowed")
+	@NotEmpty(message = "'salary' must not be empty")
 	private String salary;
 }
