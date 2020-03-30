@@ -28,19 +28,19 @@ public class UsersController {
 
 	@GetMapping("")
 	public Response getAllUsers() {
-		return Response.success().setData(userService.findAll());
+		return Response.success().setResults(userService.findAll());
 	}
 
 	@PostMapping("")
 	public Response createUser(@RequestBody @Valid NewUserValidator newUserValidator) {
-			return Response.success().setData(saveUser(newUserValidator));
+			return Response.success().setResults(saveUser(newUserValidator));
 	}
 
 	@PostMapping("/upload")
 	public Response handleFileUpload(@RequestParam("file") MultipartFile file) throws IOException, CustomException.InvalidUserCsvException {
 		List<NewUserValidator> newUserList;
 		newUserList = fileToNewUserList(file);
-		return Response.success().setData(saveManyUsers(newUserList));
+		return Response.success().setResults(saveManyUsers(newUserList));
 	}
 
 	private List<NewUserValidator> fileToNewUserList(MultipartFile file) throws IOException, CustomException.InvalidUserCsvException {
