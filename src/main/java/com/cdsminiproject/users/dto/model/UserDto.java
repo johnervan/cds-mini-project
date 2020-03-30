@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
+import java.math.BigDecimal;
+
 @Data
 @Accessors(chain = true)
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
@@ -14,11 +16,5 @@ public class UserDto {
 	private long id;
 	private String name;
 	@ToString.Exclude
-	private Double salary;
-
-//	@ToString.Include(name = "salary")
-//	String getSalaryString() {
-//		System.out.println(String.format("%.2f", salary));
-//		return String.format("%.2f", salary);
-//	}
+	private BigDecimal salary;
 }

@@ -15,6 +15,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -58,12 +59,12 @@ public class UsersController {
 	}
 
 	private UserDto saveUser(NewUserValidator newUser) {
-		UserDto userDto = new UserDto().setName(newUser.getName()).setSalary(Double.parseDouble(newUser.getSalary()));
+		UserDto userDto = new UserDto().setName(newUser.getName()).setSalary(new BigDecimal(newUser.getSalary()).setScale(2));
 		return userService.createOne(userDto);
 	}
 
 	private List<UserDto> saveManyUsers(List<NewUserValidator> newUserList) {
-		List<UserDto> userDtoList = newUserList.stream().map(nu -> new UserDto().setName(nu.getName()).setSalary(Double.parseDouble(nu.getSalary()))).collect(Collectors.toList());
+		List<UserDto> userDtoList = newUserList.stream().map(nu -> new UserDto().setName(nu.getName()).setSalary(new BigDecimal(nu.getSalary()).setScale(2))).collect(Collectors.toList());
 		return userService.createMany(userDtoList);
 	}
 

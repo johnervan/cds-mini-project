@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class UsersControllerTest {
 
 	@Test
 	public void whenGetUsers_thenReturnJsonArray() throws Exception {
-		UserDto user = new UserDto().setId(1).setName("John Smith").setSalary(1234.55);
+		UserDto user = new UserDto().setId(1).setName("John Smith").setSalary(new BigDecimal("1234.55"));
 		List<UserDto> expectedUserDtoList = new ArrayList<>();
 		expectedUserDtoList.add(user);
 

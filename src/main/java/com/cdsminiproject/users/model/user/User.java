@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Data
 @Accessors(chain = true)
@@ -18,5 +19,5 @@ public class User {
 	private String name;
 
 	@Column(nullable = false)
-	private double salary;
+	private BigDecimal salary;
 }

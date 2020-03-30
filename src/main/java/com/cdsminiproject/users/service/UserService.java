@@ -20,6 +20,7 @@ public class UserService implements IUserService {
 	@Override
 	public List<UserDto> findAll() {
 		List<UserDto> userDtoList = ((List<User>) repository.findAll()).stream().map(u -> UserMapper.toUserDto(u)).collect(Collectors.toList());
+		System.out.println(userDtoList.toString());
 		return userDtoList;
 	}
 

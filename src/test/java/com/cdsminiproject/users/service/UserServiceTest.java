@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,12 +42,12 @@ public class UserServiceTest {
 	public void whenFindAll_thenAllUsersShouldBeReturned() {
 		// Set up test
 		List<User> userModelList = new ArrayList<>();
-		userModelList.add(new User().setId(new Long(1)).setName("John Smith").setSalary(1234.55));
-		userModelList.add(new User().setId(new Long(2)).setName("Mary Tan").setSalary(5432.11));
+		userModelList.add(new User().setId(new Long(1)).setName("John Smith").setSalary(new BigDecimal("1234.55")));
+		userModelList.add(new User().setId(new Long(2)).setName("Mary Tan").setSalary(new BigDecimal("5432.11")));
 		Mockito.when(userRepository.findAll()).thenReturn(userModelList);
 		List<UserDto> expectedUserDtoList = new ArrayList<>();
-		expectedUserDtoList.add(new UserDto().setId(1).setName("John Smith").setSalary(1234.55));
-		expectedUserDtoList.add(new UserDto().setId(2).setName("Mary Tan").setSalary(5432.11));
+		expectedUserDtoList.add(new UserDto().setId(1).setName("John Smith").setSalary(new BigDecimal("1234.55")));
+		expectedUserDtoList.add(new UserDto().setId(2).setName("Mary Tan").setSalary(new BigDecimal("5432.11")));
 
 		// Run Service
 		List<UserDto> userDtoList = userService.findAll();
