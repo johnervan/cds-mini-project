@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cds-mini-project</groupId>
-	<artifactId>users</artifactId>
+		<artifactId>users</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>users</name>
 	<description>CDS Mini Project</description>
