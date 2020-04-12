@@ -32,7 +32,7 @@ Note: Development Environment has only be tested on Mac OS and Linux Distributio
 7. Server will be listening on Port 8080 (i.e. http://localhost:8080)
 
 ## Consuming the APIs
-There are three APIs available in the project. The postman documentation can be found [here](/docs/CDS%20Mini%20Project.postman_collection.json).
+There are three APIs available in the project. The postman collection can be found [here](/docs/CDS%20Mini%20Project.postman_collection.json).
 1. GET /api/users - Get all users and their salaries
 2. POST /api/users - Create a single user and his/her salary
 3. POST /api/users/upload - Upload multiple users and their respective salaries using CSV. Sample CSV can be found [here](/samples/data.csv).
